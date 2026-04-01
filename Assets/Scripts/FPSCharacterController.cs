@@ -33,6 +33,9 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float standingCameraHeight = 1.6f;
     [SerializeField] private float crouchingCameraHeight = 1.0f;
     [SerializeField] private float crouchTransitionSpeed = 12f;
+    
+
+
 
     private CharacterController characterController;
     private InputAction moveAction;
@@ -44,7 +47,8 @@ public class FPSCharacterController : MonoBehaviour
     private float verticalVelocity;
     private float pitch;
     private bool isCrouching;
-
+    
+    
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -197,4 +201,5 @@ public class FPSCharacterController : MonoBehaviour
         Cursor.lockState = shouldLock ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !shouldLock;
     }
+
 }
