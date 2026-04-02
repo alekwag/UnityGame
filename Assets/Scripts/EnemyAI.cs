@@ -37,6 +37,8 @@ public class EnemyAI : MonoBehaviour
     private bool locationToSearch;
     private float searchTimer = 0f;
 
+    private float fleeTimer = 0f;
+
     private State currentState;
 
 
@@ -54,20 +56,21 @@ public class EnemyAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
         bool canSeePlayerDirectly = CanSeePlayer();
-        bool seesFlashlight = CanSeeFlashlightBeam();
+        bool lightOnEnemy = LightOnEnemy();
 
 
         //  Detection logic
         bool detected = false;
 
         // 2. Flashlight beam gives away position
-        if ((currentState != State.Flee && seesFlashlight) || (currentState != State.Flee && canSeePlayerDirectly))
+        if (lightOnEnemy || canSeePlayerDirectly)
             detected = true;
 
         //  State switching
-        if (playerFlashlight.IsUVLightOn() && seesFlashlight)
+        if (playerFlashlight.IsUVLightOn() && lightOnEnemy || currentState == State.Flee)
         {
             currentState = State.Flee;
+            TakeDamage(50f * Time.deltaTime);
         }
         else if (detected)
         {
@@ -83,13 +86,8 @@ public class EnemyAI : MonoBehaviour
         {
             currentState = State.Patrol;
         }
-
+        
         HandleState();
-
-        if (playerFlashlight.IsUVLightOn() && CanSeeFlashlightBeam())
-        {
-            TakeDamage(20f * Time.deltaTime);
-        }
 
         if (agent.hasPath)
         {
@@ -113,19 +111,19 @@ public class EnemyAI : MonoBehaviour
     }
 
     void HandleState()
-{
-    switch (currentState)
     {
-        case State.Patrol: Patrol(); break;
-        case State.Chase:
-            agent.speed = chaseSpeed;
-            agent.SetDestination(player.position);
-            RotateTowards(player.position);
-            break;
-        case State.Search: Search(); break;
-        case State.Flee: Flee(); break;
+        switch (currentState)
+        {
+            case State.Patrol: Patrol(); break;
+            case State.Chase:
+                agent.speed = chaseSpeed;
+                agent.SetDestination(player.position);
+                RotateTowards(player.position);
+                break;
+            case State.Search: Search(); break;
+            case State.Flee: Flee(); break;
+        }
     }
-}
 
     private bool CanSeePlayer()
     {
@@ -166,12 +164,12 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
-    private bool CanSeeFlashlightBeam()
+    private bool LightOnEnemy()
     {
         if (playerFlashlight == null) return false;
 
-        if (!playerFlashlight.IsWhiteLightOn() && 
-            !playerFlashlight.IsUVLightOn())
+        if (!playerFlashlight.IsWhiteLightOn()
+            && !playerFlashlight.IsUVLightOn())
             return false;
 
         Light light = playerFlashlight.GetComponentInChildren<Light>();
@@ -238,6 +236,14 @@ public class EnemyAI : MonoBehaviour
 
         agent.SetDestination(target);
         RotateTowards(target);
+
+        fleeTimer += Time.deltaTime;
+
+        if (fleeTimer > 20f)
+        {
+            fleeTimer = 0f;
+            currentState = State.Patrol;
+        }
     }
 
     void TakeDamage(float amount)

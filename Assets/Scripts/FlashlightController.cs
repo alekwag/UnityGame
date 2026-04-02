@@ -25,8 +25,8 @@ public class FlashlightController : MonoBehaviour
     }
 
     [Header("UV Battery")]
-    [SerializeField] private float maxUVBattery = 5f;
-    [SerializeField] private float uvDrainRate = 2f;
+    [SerializeField] private float maxUVBattery = 10f;
+    [SerializeField] private float uvDrainRate = 1f;
 
     private float currentUVBattery;
 
