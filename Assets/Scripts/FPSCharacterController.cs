@@ -47,7 +47,9 @@ public class FPSCharacterController : MonoBehaviour
     private float verticalVelocity;
     private float pitch;
     private bool isCrouching;
-    
+    public bool IsCrouching => isCrouching;
+    public bool IsSprinting { get; private set; }
+    public float CurrentSpeed { get; private set; }
     
     private void Awake()
     {
@@ -84,6 +86,8 @@ public class FPSCharacterController : MonoBehaviour
         HandleLook();
         HandleMovement();
         HandleCrouch();
+
+        CurrentSpeed = characterController.velocity.magnitude;
     }
 
     private void ResolveActions()
@@ -153,8 +157,8 @@ public class FPSCharacterController : MonoBehaviour
             verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        bool sprinting = sprintAction != null && sprintAction.IsPressed() && !isCrouching && moveInput.y > 0.05f;
-        float speed = sprinting ? sprintSpeed : walkSpeed;
+        IsSprinting = sprintAction != null && sprintAction.IsPressed() && !isCrouching && moveInput.y > 0.05f;
+        float speed = IsSprinting ? sprintSpeed : walkSpeed;
 
         verticalVelocity += gravity * Time.deltaTime;
         Vector3 velocity = move * speed;

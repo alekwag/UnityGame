@@ -19,9 +19,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 4.5f;
     [SerializeField] private float fleeSpeed = 6f;
-
     [SerializeField] private float health = 100f;
     [SerializeField] private float rotationSpeed = 8f;
+
+    [Header("Hearing")]
+    [SerializeField] private PlayerNoise playerNoise;
+// ...existing code...
 
     private enum State
     {
@@ -46,6 +49,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         playerFlashlight = player.GetComponent<FlashlightController>();
+        playerNoise = player.GetComponent<PlayerNoise>();
         currentState = State.Patrol;
         
     }
@@ -61,10 +65,19 @@ public class EnemyAI : MonoBehaviour
 
         //  Detection logic
         bool detected = false;
-
-        // 2. Flashlight beam gives away position
-        if (lightOnEnemy || canSeePlayerDirectly)
+        if (canSeePlayerDirectly || lightOnEnemy)
+        {
             detected = true;
+        }
+         // hearing
+       if (playerNoise != null)
+        {
+            float noiseRadius = playerNoise.currentNoiseRadius;
+            if (noiseRadius > 0f && distance <= noiseRadius)
+            {
+                detected = true;
+            }
+        }
 
         //  State switching
         if (playerFlashlight.IsUVLightOn() && lightOnEnemy || currentState == State.Flee)
