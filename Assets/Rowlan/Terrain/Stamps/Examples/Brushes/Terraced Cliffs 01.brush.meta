@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 77a153c3b8d2e674aa1cbae8c4b52a26
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218286
+  packageName: StampIT! Collection - FREE Heightmaps for Unity 6, MicroVerse, Gaia
+    Terrain
+  packageVersion: 1.18.0
+  assetPath: Assets/Rowlan/Terrain/Stamps/Examples/Brushes/Terraced Cliffs 01.brush
+  uploadId: 885718

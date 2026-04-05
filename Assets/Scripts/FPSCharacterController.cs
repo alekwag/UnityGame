@@ -35,8 +35,6 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float crouchTransitionSpeed = 12f;
     
 
-
-
     private CharacterController characterController;
     private InputAction moveAction;
     private InputAction lookAction;
@@ -47,9 +45,23 @@ public class FPSCharacterController : MonoBehaviour
     private float verticalVelocity;
     private float pitch;
     private bool isCrouching;
+
+
+    // sound logic 
     public bool IsCrouching => isCrouching;
     public bool IsSprinting { get; private set; }
     public float CurrentSpeed { get; private set; }
+
+
+    // Water logic 
+    public bool IsSwimming { get; private set; }
+
+    public void SetSwimming(bool swimming)
+    {
+        IsSwimming = swimming;
+    }
+
+    public float VerticalVelocity => verticalVelocity;
     
     private void Awake()
     {
@@ -138,6 +150,9 @@ public class FPSCharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (IsSwimming)
+        return;
+
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         if (move.sqrMagnitude > 1f)
