@@ -55,10 +55,18 @@ public class FPSCharacterController : MonoBehaviour
 
     // Water logic 
     public bool IsSwimming { get; private set; }
-
     public void SetSwimming(bool swimming)
     {
         IsSwimming = swimming;
+    }
+
+    // Move with platform logic
+    private Transform platform;
+    private Vector3 lastPlatformPos;
+    public void SetPlatform(Transform platform)
+    {
+        this.platform = platform;
+        if (platform != null) lastPlatformPos = platform.position;
     }
 
     public float VerticalVelocity => verticalVelocity;
@@ -90,9 +98,19 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
-        if (moveAction == null || lookAction == null)
-        {
-            return;
+        
+        if (moveAction == null || lookAction == null) {return;}
+
+        // Apply platform movement BEFORE your normal move logic
+        if (platform != null) {
+            Vector3 platformDelta = platform.position - lastPlatformPos;
+
+            // Only carry player vertically if platform is rising AND player is grounded
+            if (platformDelta.y < 0 || !characterController.isGrounded)
+                platformDelta.y = 0f;
+
+            characterController.Move(platformDelta);
+            lastPlatformPos = platform.position;
         }
 
         HandleLook();

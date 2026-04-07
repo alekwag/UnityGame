@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 465a0aa772b4c384fbbf7aafc2a355d0
+timeCreated: 1487457204
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 53149
+  packageName: M3A1 Scout Car
+  packageVersion: 1.1
+  assetPath: Assets/M3A1 Scout Car/M3A1_Scout_Car/LightingData.asset
+  uploadId: 163003

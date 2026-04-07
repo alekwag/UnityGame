@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 85fcbbcd320bc0143b2ac6d8097c96fd
+timeCreated: 1451867089
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 53149
+  packageName: M3A1 Scout Car
+  packageVersion: 1.1
+  assetPath: Assets/M3A1 Scout Car/Materials/m3a1_window_diffuse.mat
+  uploadId: 163003

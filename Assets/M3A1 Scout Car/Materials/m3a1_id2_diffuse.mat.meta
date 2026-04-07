@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3980c9d6d9509941a4420f5f78f64e1
+timeCreated: 1451867089
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 53149
+  packageName: M3A1 Scout Car
+  packageVersion: 1.1
+  assetPath: Assets/M3A1 Scout Car/Materials/m3a1_id2_diffuse.mat
+  uploadId: 163003

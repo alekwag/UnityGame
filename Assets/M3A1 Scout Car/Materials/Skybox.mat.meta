@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0df3d60df005d34fb4d3242cd336081
+timeCreated: 1451868036
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 53149
+  packageName: M3A1 Scout Car
+  packageVersion: 1.1
+  assetPath: Assets/M3A1 Scout Car/Materials/Skybox.mat
+  uploadId: 163003
