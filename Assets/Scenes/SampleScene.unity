@@ -10961,7 +10961,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268484065}
   serializedVersion: 5
-  m_Mass: 500
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -11000,7 +11000,7 @@ MonoBehaviour:
   frontRightMesh: {fileID: 1025710907}
   rearLeftMesh: {fileID: 497069106}
   rearRightMesh: {fileID: 1749390039}
-  motorTorque: 1500
+  motorTorque: 3000
   brakeTorque: 3000
   maxSteerAngle: 30
   maxSpeed: 20
@@ -13598,7 +13598,7 @@ MonoBehaviour:
   - {fileID: 213736617}
   - {fileID: 1588510007}
   - {fileID: 1730186579}
-  maxSpeed: 7
+  maxSpeed: 15
   acceleration: 2
   slowDownDistance: 7
   waitTime: 5
@@ -16262,7 +16262,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -5.15, y: 12.5, z: 0.12}
+  m_LocalPosition: {x: 459, y: 1214, z: 356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24123,7 +24123,7 @@ GameObject:
   - component: {fileID: 621650787}
   - component: {fileID: 621650790}
   m_Layer: 0
-  m_Name: Box Volume
+  m_Name: WaterVolume
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24197,7 +24197,7 @@ MonoBehaviour:
   swimSpeed: 3
   swimVerticalSpeed: 2
   sinkingForce: 0.3
-  underwaterOffset: 0.5
+  underwaterOffset: 1.6
   underwaterFogColor: {r: 0, g: 0, b: 1, a: 1}
   underwaterFogDensity: 0.01
   surfaceFogColor: {r: 0.83137256, g: 0.83137256, b: 0.83137256, a: 1}
@@ -26897,15 +26897,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f4fe43b319eb6974aba8ecc5b9ec79bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 130.50793
+      value: 144.2
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f4fe43b319eb6974aba8ecc5b9ec79bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 500.54
+      value: 499.1
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f4fe43b319eb6974aba8ecc5b9ec79bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1235.9108
+      value: 1264.5
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f4fe43b319eb6974aba8ecc5b9ec79bc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27047,8 +27047,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.1472176, z: 1}
+  m_Center: {x: 0, y: 0.073607974, z: 0}
 --- !u!114 &715255254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27066,7 +27066,7 @@ MonoBehaviour:
   - {fileID: 372742560}
   - {fileID: 436348424}
   - {fileID: 2142571310}
-  maxSpeed: 7
+  maxSpeed: 15
   acceleration: 2
   slowDownDistance: 7
   waitTime: 5

@@ -106,8 +106,8 @@ public class FPSCharacterController : MonoBehaviour
             Vector3 platformDelta = platform.position - lastPlatformPos;
 
             // Only carry player vertically if platform is rising AND player is grounded
-            if (platformDelta.y < 0 || !characterController.isGrounded)
-                platformDelta.y = 0f;
+            // if (platformDelta.y < 0 || !characterController.isGrounded)
+            //     platformDelta.y = 0f;
 
             characterController.Move(platformDelta);
             lastPlatformPos = platform.position;
