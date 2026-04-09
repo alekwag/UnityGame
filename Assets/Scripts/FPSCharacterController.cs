@@ -34,7 +34,7 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float crouchingCameraHeight = 1.0f;
     [SerializeField] private float crouchTransitionSpeed = 12f;
     
-
+    
     private CharacterController characterController;
     private InputAction moveAction;
     private InputAction lookAction;

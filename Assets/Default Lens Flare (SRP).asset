@@ -35,7 +35,7 @@ MonoBehaviour:
     preserveAspectRatio: 0
     rotation: 0
     tintColorType: 0
-    tint: {r: 1, g: 1, b: 1, a: 0.5}
+    tint: {r: 1, g: 1, b: 1, a: 1}
     tintGradient:
       <textureSize>k__BackingField: 4
       m_Gradient:
@@ -74,7 +74,7 @@ MonoBehaviour:
     autoRotate: 0
     flareType: 1
     modulateByLightColor: 1
-    isFoldOpened: 0
+    isFoldOpened: 1
     distribution: 0
     lengthSpread: 1
     positionCurve:
