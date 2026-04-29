@@ -28,7 +28,9 @@ public class CarEntrySystem : MonoBehaviour
     {
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            if (!inCar && playerNearby)
+            float dist = Vector3.Distance(playerObject.transform.position, driverSeat.position);
+
+            if (!inCar && playerNearby && dist < 3f)
                 StartCoroutine(EnterCarRoutine());
             else if (inCar)
                 StartCoroutine(ExitCarRoutine());
@@ -41,6 +43,7 @@ public class CarEntrySystem : MonoBehaviour
     IEnumerator EnterCarRoutine()
     {
         inCar = true;
+        playerNearby = false;
 
         // Disable player movement
         fpsController.enabled = false;

@@ -70,6 +70,18 @@ public class FPSCharacterController : MonoBehaviour
     }
 
     public float VerticalVelocity => verticalVelocity;
+
+    private bool movementLocked = false;
+
+    public void SetMovementLocked(bool locked)
+    {
+        movementLocked = locked;
+    }
+
+    public void ResetVerticalVelocity()
+{
+    verticalVelocity = 0f;
+}
     
     private void Awake()
     {
@@ -168,8 +180,9 @@ public class FPSCharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (IsSwimming)
-        return;
+        if (movementLocked) return;
+
+        if (IsSwimming)  return;
 
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
