@@ -307,7 +307,6 @@ public class ClimbingSystem : MonoBehaviour
                 return;
             }
         }
-        // -----------------------
 
         // If not mantling, decide between Kick-off or Arc Jump
         if (Vector3.Dot(lookDirection, activeLedge.WallOutwardNormal) > lookAwayFromWallThreshold)

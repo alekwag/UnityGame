@@ -9,6 +9,8 @@ TagManager:
   - Climbable
   - HangBlock
   - TopHangBlock
+  - VentShaft
+  - VentDoor
   layers:
   - Default
   - TransparentFX
@@ -18,10 +20,10 @@ TagManager:
   - UI
   - Enemy
   - CameraCollider
-  - Vault
+  - Vent
   - GrabPoint
-  - 
-  - 
+  - Scanner
+  - VentHighlight
   - 
   - 
   - 
